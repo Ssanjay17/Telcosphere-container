@@ -1,0 +1,5 @@
+cd containers
+podman compose up --build
+# then, once:
+podman build -t telcosphere/seed:1.0 -f seed/Containerfile .
+podman run --rm --network containers_default -e MONGO_URI=mongodb://mongo:27017 telcosphere/seed:1.0
